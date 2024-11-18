@@ -14,8 +14,13 @@ spec:
       labels:
         app: netflix-app
     spec:
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: netflix-app
         image: sreedhar8897/netflix:latest
         ports:
         - containerPort: 80
+        securityContext:
+          allowPrivilegeEscalation: false
