@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: netflix-app
-    image: <your-image>
+    image: nasi101/netflix:latest
     securityContext:
       seccompProfile:
         type: Unconfined
