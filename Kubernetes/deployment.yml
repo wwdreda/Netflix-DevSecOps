@@ -22,5 +22,5 @@ spec:
         securityContext:
           seccompProfile:
             type: Localhost
-            localhostProfile: seccomp/profiles/seccomp-netflix.json
+            localhostProfile: profiles/seccomp-netflix.json
 
