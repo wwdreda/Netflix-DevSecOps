@@ -1,11 +1,14 @@
+kind: Service
 apiVersion: v1
-kind: Pod
 metadata:
-  name: debug-pod
+  name: node-exporter
+  namespace: prometheus-node-exporter
 spec:
-  containers:
-  - name: netflix-app
-    image: nasi101/netflix:latest
-    securityContext:
-      seccompProfile:
-        type: Unconfined
+  selector:
+      app: node-exporter
+  ports:
+  - name: node-exporter
+    protocol: TCP
+    port: 9100
+    targetPort: 9100
+  type: NodePort
