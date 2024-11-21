@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: netflix-app
+  labels:
+    app: netflix-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: netflix-app
@@ -14,8 +16,6 @@ spec:
     spec:
       containers:
       - name: netflix-app
-        image: nasi101/netflix:latest
-        securityContext:
-          seccompProfile:
-            type: Localhost
-            localhostProfile: "profiles/seccomp-netflix.json"
+        image: sreedhar8897/netflix:latest
+        ports:
+        - containerPort: 80
