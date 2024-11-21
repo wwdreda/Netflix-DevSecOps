@@ -1,0 +1,19 @@
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: k8sallowedimageregistry
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sAllowedImageRegistry
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8sallowedimageregistry
+
+        violation[{"msg": msg}] {
+          input.review.kind.kind == "Pod"
+          not startswith(input.review.object.spec.containers[_].image, "nasi101/")
+          msg := sprintf("Container image must originate from the approved registry 'nasi101/': %s", [input.review.object.spec.containers[_].image])
+        }
