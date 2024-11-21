@@ -14,6 +14,6 @@ spec:
 
         violation[{"msg": msg}] {
           input.review.kind.kind == "Pod"
-          not startswith(input.review.object.spec.containers[_].image, "nasi101/")
-          msg := sprintf("Container image must originate from the approved registry 'nasi101/': %s", [input.review.object.spec.containers[_].image])
+          not startswith(input.review.object.spec.containers[_].image, "sreedhar8897/")
+          msg := sprintf("Container image must originate from the approved registry 'sreedhar8897/': %s", [input.review.object.spec.containers[_].image])
         }
