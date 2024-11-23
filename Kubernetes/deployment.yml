@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: netflix-app
-        image: wwdreda/netflixxx:latest
+        image: wwdreda/netflixxx
         ports:
         - containerPort: 80
