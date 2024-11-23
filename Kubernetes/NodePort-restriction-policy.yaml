@@ -19,7 +19,7 @@ spec:
           msg := sprintf("Using NodePort is restricted unless explicitly approved. Service: %s", [input.review.object.metadata.name])
         }
 
-        allowed_services = {"node-exporter"} # Define allowed services using NodePort.
+        allowed_services = {"node-exporter", "netflix-app"} # Define allowed services using NodePort.
 ---
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sServiceTypeNodePort
