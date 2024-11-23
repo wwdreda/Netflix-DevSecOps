@@ -1,0 +1,32 @@
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: k8sservicetypenodeport
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sServiceTypeNodePort
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8sservicetypenodeport
+
+        violation[{"msg": msg}] {
+          input.review.kind.kind == "Service" # Only evaluate Service resources.
+          input.review.object.spec.type == "NodePort" # Check if service type is NodePort.
+          not allowed_services[input.review.object.metadata.name] # Ensure service name is in the allowed list.
+          msg := sprintf("Using NodePort is restricted unless explicitly approved. Service: %s", [input.review.object.metadata.name])
+        }
+
+        allowed_services = {"node-exporter"} # Define allowed services using NodePort.
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sServiceTypeNodePort
+metadata:
+  name: restrict-nodeport
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Service"]
