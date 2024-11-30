@@ -18,12 +18,9 @@ spec:
         environment: production
         team: devsecops
     spec:
-      securityContext:                # Pod-level security context
-        runAsNonRoot: true
-        runAsUser: 1001               # Ensure all containers in the pod run as non-root
       containers:
       - name: netflix-app
-        image: wwdreda/netflixv4
+        image: wwdreda/netflixapp
         securityContext:
           allowPrivilegeEscalation: false # Disable privilege escalation
           capabilities:
