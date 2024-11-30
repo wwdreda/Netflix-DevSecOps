@@ -22,21 +22,14 @@ spec:
         runAsNonRoot: true            # Ensure all containers in the pod run as non-root
       containers:
       - name: netflix-app
-        image: wwdreda/netflixapp
+        image: wwdreda/netflixxxx
         securityContext:              # Container-level security context
           allowPrivilegeEscalation: false # Disable privilege escalation
           runAsUser: 1000             # Specify a non-root user
           capabilities:
             drop:                     # Drop all unnecessary Linux capabilities
             - ALL
-          readOnlyRootFilesystem: true # Enforce read-only root filesystem
         ports:
         - containerPort: 80
-        volumeMounts:                 # Mount writable volume for Nginx
-        - mountPath: /var/cache/nginx
-          name: nginx-cache
-      volumes:                        # Define the writable volume
-      - name: nginx-cache
-        emptyDir: {}
 
 
