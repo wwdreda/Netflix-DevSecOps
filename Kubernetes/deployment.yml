@@ -22,7 +22,7 @@ spec:
         runAsNonRoot: true            # Ensure all containers in the pod run as non-root
       containers:
       - name: netflix-app
-        image: wwdreda/netflixapp1:latest
+        image: wwdreda/netflixapp1
         securityContext:
           allowPrivilegeEscalation: false # Disable privilege escalation
           capabilities:
