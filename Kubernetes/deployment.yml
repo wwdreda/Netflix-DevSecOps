@@ -21,10 +21,15 @@ spec:
       containers:
       - name: netflix-app
         image: sreedhar8897/netflix:latest
-        securityContext:              # Container-level security context
+        securityContext:
           capabilities:
-            drop:                     # Drop all unnecessary Linux capabilities
-            - ALL
+            drop:
+            - ALL                     # Drop all unnecessary capabilities
+            add:                      # Add back only the required capabilities
+            - CHOWN
+            - SETGID
+            - SETUID
         ports:
         - containerPort: 80
+
 
