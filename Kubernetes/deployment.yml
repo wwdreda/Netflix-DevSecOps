@@ -21,12 +21,6 @@ spec:
       containers:
       - name: netflix-app
         image: sreedhar8897/netflix:latest
-        securityContext:              # Container-level security context
-          allowPrivilegeEscalation: false # Disable privilege escalation
-          capabilities:
-            drop:                     # Drop all unnecessary Linux capabilities
-            - ALL
         ports:
         - containerPort: 80
-
 
