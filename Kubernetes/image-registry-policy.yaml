@@ -16,8 +16,8 @@ spec:
           input.review.kind.kind == "Pod"
           some i
           image := input.review.object.spec.containers[i].image
-          not startswith(image, "nasi101/")
-          msg := sprintf("Container image must originate from the approved registry 'nasi101/': %s", [image])
+          not startswith(image, "sreedhar8897/")
+          msg := sprintf("Container image must originate from the approved registry 'sreedhar8897/': %s", [image])
         }
 ---
 apiVersion: constraints.gatekeeper.sh/v1beta1
