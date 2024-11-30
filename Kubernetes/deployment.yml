@@ -22,6 +22,7 @@ spec:
       - name: netflix-app
         image: sreedhar8897/netflix:latest
         securityContext:
+          allowPrivilegeEscalation: false # Disable privilege escalation
           capabilities:
             drop:
             - ALL                     # Drop all unnecessary capabilities
