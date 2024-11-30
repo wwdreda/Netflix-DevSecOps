@@ -19,7 +19,8 @@ spec:
         team: devsecops
     spec:
       securityContext:                # Pod-level security context
-        runAsNonRoot: true            # Ensure all containers in the pod run as non-root
+        runAsNonRoot: true
+        runAsUser: 1001               # Ensure all containers in the pod run as non-root
       containers:
       - name: netflix-app
         image: wwdreda/netflixv1
