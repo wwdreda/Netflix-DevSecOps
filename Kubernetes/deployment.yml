@@ -32,7 +32,6 @@ spec:
             - SETUID
             - NET_BIND_SERVICE
         ports:
-        - port: 80
-          targetport: 8080
+        - containerPort: 80
 
 
