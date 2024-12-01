@@ -21,6 +21,12 @@ spec:
       containers:
       - name: netflix-app
         image: sreedhar8897/netflix:latest
+        env:
+        - name: VITE_APP_TMDB_V3_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: tmdb-api-key
+              key: VITE_APP_TMDB_V3_API_KEY
         securityContext:
           allowPrivilegeEscalation: false # Disable privilege escalation
           capabilities:
