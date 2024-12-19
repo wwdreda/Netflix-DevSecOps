@@ -17,7 +17,7 @@ spec:
           some i
           image := input.review.object.spec.containers[i].image
           not startswith(image, "wwdreda/")
-          msg := sprintf("Container image must originate from the approved registry 'sreedhar8897/': %s", [image])
+          msg := sprintf("Container image must originate from the approved registry 'wwdreda/': %s", [image])
         }
 ---
 apiVersion: constraints.gatekeeper.sh/v1beta1
