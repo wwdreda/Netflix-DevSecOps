@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: netflix-app
-        image: sreedhar8897/netflix:latest
+        image: wwdreda/netflix:latest
         env:
         - name: VITE_APP_TMDB_V3_API_KEY
           valueFrom:
